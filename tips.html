@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кулінарний довідник — М'ята &amp; Еспресо</title>
+  <meta name="description" content="Кухонна наука без нудьги: правила поводження з ножем, таблиця взаємозамінності інгредієнтів, відповіді на часті запитання та зв'язок із шефом.">
+  <meta name="theme-color" content="#f6efdf">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem("mx-theme") === "dark") {
+          document.documentElement.dataset.theme = "dark";
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body class="page page-tips">
+
+  <a class="skip-link" href="#main">Перейти до контенту</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress"></span></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 4v16M6 14l6 6 6-6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2c1.5 6 4.5 9 10 10-5.5 1-8.5 4-10 10-1.5-6-4.5-9-10-10 5.5-1 8.5-4 10-10Z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-dice" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="15.5" cy="8.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="8.5" cy="15.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.2" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C10 4 4 8 4 15c0 3 2 5 5 5 7 0 11-6 11-16Z"/><path d="M4 21c2-6 6-10 12-13"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-wrap">
+        <a class="brand" href="index.html" aria-label="М'ята &amp; Еспресо — на головну">
+          <span class="brand-mark" aria-hidden="true">
+            <svg class="ico ico--fill"><use href="#i-spark"></use></svg>
+          </span>
+          <span class="brand-text">м'ята <i>&amp;</i> еспресо</span>
+        </a>
+
+        <nav class="nav" id="site-nav" aria-label="Головна навігація">
+          <a class="nav-link" href="index.html">Головна</a>
+          <a class="nav-link" href="recipes.html">Рецепти <span class="nav-count">35</span></a>
+          <a class="nav-link is-active" href="tips.html" aria-current="page">Довідник</a>
+          <a class="nav-link" href="index.html#philosophy">Про кухню</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="Увімкнути нічну тему" aria-pressed="false">
+            <svg class="ico icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+            <svg class="ico icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+          </button>
+          <a class="btn btn--lime btn--small" href="recipes.html">
+            До рецептів
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+          <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="site-nav">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero" aria-labelledby="tips-title">
+      <div class="container page-hero-grid">
+        <div>
+          <nav class="breadcrumbs" aria-label="Навігаційний ланцюжок">
+            <a href="index.html">Головна</a>
+            <span aria-hidden="true">/</span>
+            <span>Довідник</span>
+          </nav>
+
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Кухонна наука · без води</p>
+          <h1 class="page-title" id="tips-title">Кухонна <em>наука</em></h1>
+          <p class="page-lead">
+            Усе, що варто знати, щоб ніж різав, тісто росло, а вечеря
+            не перетворювалася на кулінарний квест. Коротко, чесно й без нудьги.
+          </p>
+        </div>
+
+        <div class="page-art" aria-hidden="true">
+          <div class="page-art-disc">
+            <strong>5</strong>
+            <span>правил</span>
+          </div>
+          <span class="page-art-sticker">перевірено шефом!</span>
+          <svg class="page-art-star ico ico--fill"><use href="#i-spark"></use></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ПРАВИЛА ==================== -->
+    <section class="section" aria-labelledby="rules-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">01 — Ножі</p>
+            <h2 class="section-title" id="rules-title">5 правил, які <em>рятують вечерю</em></h2>
+          </div>
+          <p class="section-desc">
+            І вашу вечерю, і ваші пальці. Гострий ніж — це не розкіш,
+            а базова техніка безпеки на кухні.
+          </p>
+        </div>
+
+        <div class="rule-grid">
+          <article class="rule-card rule-card--feature">
+            <span class="rule-ico" aria-hidden="true">🧼</span>
+            <span class="rule-num">01</span>
+            <h3>Ніколи не мийте ножі в посудомийній машині</h3>
+            <p>Гаряча вода та агресивні засоби туплять лезо й роз'їдають руків'я. Мийте одразу руками — це швидше, ніж здається.</p>
+          </article>
+
+          <article class="rule-card">
+            <span class="rule-ico" aria-hidden="true">🪵</span>
+            <span class="rule-num">02</span>
+            <h3>Дерев'яна дошка замість скла</h3>
+            <p>Скло й камінь миттєво псують заточку. Дерево або бамбук — найкращі друзі ножа і вашого терпіння.</p>
+          </article>
+
+          <article class="rule-card">
+            <span class="rule-ico" aria-hidden="true">✋</span>
+            <span class="rule-num">03</span>
+            <h3>Правильний хват за основу леза</h3>
+            <p>Тримайте ніж великим та вказівним пальцями за основу леза. Так більше контролю, ніж за руків'я.</p>
+          </article>
+
+          <article class="rule-card">
+            <span class="rule-ico" aria-hidden="true">🪨</span>
+            <span class="rule-num">04</span>
+            <h3>Точити регулярно, а не «коли треба»</h3>
+            <p>Мусат — раз на тиждень, камінь — раз на 2–3 місяці. Тупий ніж зісковзує і ранить частіше за гострий.</p>
+          </article>
+
+          <article class="rule-card">
+            <span class="rule-ico" aria-hidden="true">🥕</span>
+            <span class="rule-num">05</span>
+            <h3>Рухати ніж, а не продукт</h3>
+            <p>Не тягніть овоч до леза. Нехай ніж іде вперед-назад, а пальці залишаються подалі від лінії різу.</p>
+          </article>
+        </div>
+
+        <div class="tip-banner">
+          <span class="tip-banner-ico" aria-hidden="true">🔪</span>
+          <p>
+            Гострий ніж — це безпечний ніж.
+            <small>Тупий зісковзує з продукту, а не ріже його. Тому точити — це не про перфекціонізм, а про безпеку.</small>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ТАБЛИЦЯ ==================== -->
+    <section class="section section--tight" aria-labelledby="subs-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">02 — Заміни</p>
+            <h2 class="section-title" id="subs-title">Таблиця <em>взаємозамінності</em></h2>
+          </div>
+          <p class="section-desc">
+            Не біжіть до магазину, якщо чогось бракує.
+            Ось робочі заміни, які не зіпсують страву.
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="tips-table">
+            <thead>
+              <tr>
+                <th scope="col">Рецептурний інгредієнт</th>
+                <th scope="col">Чим можна замінити</th>
+                <th scope="col">Пропорція</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Інгредієнт">Вершки 30%</td>
+                <td data-label="Заміна">Молоко + вершкове масло (3:1)</td>
+                <td data-label="Пропорція">Збереже жирність</td>
+              </tr>
+              <tr>
+                <td data-label="Інгредієнт">Сир Маскарпоне</td>
+                <td data-label="Заміна">Кисломолочний сир + вершки 33%</td>
+                <td data-label="Пропорція">Збити блендером</td>
+              </tr>
+              <tr>
+                <td data-label="Інгредієнт">Винний оцет</td>
+                <td data-label="Заміна">Лимонний сік або яблучний оцет</td>
+                <td data-label="Пропорція">1:1 за об'ємом</td>
+              </tr>
+              <tr>
+                <td data-label="Інгредієнт">Цукор</td>
+                <td data-label="Заміна">Мед</td>
+                <td data-label="Пропорція">3:4 — меду менше</td>
+              </tr>
+              <tr>
+                <td data-label="Інгредієнт">Куряче яйце (для скріплення)</td>
+                <td data-label="Заміна">Лляне борошно + вода</td>
+                <td data-label="Пропорція">1 ст. л. + 3 ст. л. води</td>
+              </tr>
+              <tr>
+                <td data-label="Інгредієнт">Розпушувач</td>
+                <td data-label="Заміна">Сода + лимонний сік</td>
+                <td data-label="Пропорція">1 ч. л. соди + 0,5 ч. л. соку</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="section" aria-labelledby="faq-title">
+      <div class="container faq-layout">
+        <div class="faq-intro">
+          <p class="kicker">03 — FAQ</p>
+          <h2 class="section-title" id="faq-title">Питання, які <em>виникають</em></h2>
+          <p>
+            Зібрали те, про що найчастіше питають на кухні.
+            Якщо вашого питання немає — напишіть, додамо.
+          </p>
+          <a class="btn btn--dark" href="#feedback">
+            Спитати шефа
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-down"></use></svg>
+          </a>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item is-open">
+            <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-answer-1">
+              <span>Як зробити м'ясо м'яким і соковитим?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" id="faq-answer-1" aria-hidden="false">
+              <div class="faq-answer-inner">
+                <p>Дайте м'ясу прогрітися до кімнатної температури, обсмажте на добре розігрітій сковороді й дайте відпочити 5–7 хвилин після приготування. Сік розподілиться всередині, а не на дошці.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2">
+              <span>Чому сирники розпливаються на сковороді?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" id="faq-answer-2" aria-hidden="true">
+              <div class="faq-answer-inner">
+                <p>Найчастіше через вологий сир. Відтисніть його через марлю, додайте 1–2 ст. л. борошна або манки і дайте тісту 10 хвилин у холодильнику.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3">
+              <span>Як врятувати пересолену страву?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" id="faq-answer-3" aria-hidden="true">
+              <div class="faq-answer-inner">
+                <p>Додайте картоплю, рис або вершки й дайте настоятися. Воду доливати не варто — вона не прибере сіль, лише розбавить смак. Наступного разу соліть поетапно.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4">
+              <span>Чому випічка не піднімається?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" id="faq-answer-4" aria-hidden="true">
+              <div class="faq-answer-inner">
+                <p>Перевірте термін придатності розпушувача, не перемішуйте тісто занадто довго і не відкривайте духовку в перші 20 хвилин. Інгредієнти кімнатної температури теж важливі.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ФОРМА ==================== -->
+    <section class="section section--tight" id="feedback" aria-labelledby="feedback-title">
+      <div class="container">
+        <div class="feedback-panel">
+          <div class="feedback-copy">
+            <p class="kicker">04 — Зв'язок</p>
+            <h2 id="feedback-title">Є питання?<br><em>Шеф на зв'язку.</em></h2>
+            <p>
+              Не соромтеся питати про рецепти, заміни інгредієнтів або техніку.
+              Найцікавіші запитання перетворюються на нові матеріали в довіднику.
+            </p>
+            <p class="feedback-note">
+              <svg class="ico" aria-hidden="true"><use href="#i-mail"></use></svg>
+              Відповідаємо протягом 1–2 днів, окрім неділі — у неділю ми їмо.
+            </p>
+          </div>
+
+          <form class="feedback-form" id="feedback-form">
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Ваше ім'я</label>
+                <input id="name" name="name" type="text" placeholder="Олександр" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="alex@gmail.com" autocomplete="email" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message">Повідомлення</label>
+              <textarea id="message" name="message" rows="5" placeholder="Напишіть запитання…" required></textarea>
+            </div>
+
+            <button class="btn btn--lime" type="submit">
+              Надіслати запитання
+              <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+            </button>
+
+            <p class="form-note" id="feedback-note" aria-live="polite">
+              Демо-форма: щоб отримувати реальні листи, підключіть Formspree або власний бекенд.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="М'ята &amp; Еспресо — на головну">
+            <span class="brand-mark" aria-hidden="true">
+              <svg class="ico ico--fill"><use href="#i-spark"></use></svg>
+            </span>
+            <span class="brand-text">м'ята <i>&amp;</i> еспресо</span>
+          </a>
+          <p>Кулінарний щоденник про просту їжу з характером. Готуй, смакуй, живи яскраво.</p>
+          <span class="footer-tag"><span aria-hidden="true"></span> 35 рецептів уже на кухні</span>
+        </div>
+
+        <div class="footer-col">
+          <h3>Меню</h3>
+          <a href="index.html">Головна</a>
+          <a href="recipes.html">Усі рецепти</a>
+          <a href="tips.html">Довідник</a>
+          <a href="tips.html#feedback">Зв'язатися</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Настрої</h3>
+          <a href="recipes.html?category=breakfast">Сніданки</a>
+          <a href="recipes.html?category=main">Основні</a>
+          <a href="recipes.html?category=dessert">Десерти</a>
+          <a href="recipes.html?category=drink">Напої</a>
+        </div>
+
+        <div class="footer-col footer-cta">
+          <h3>Є ідея?</h3>
+          <p>Маєте рецепт, який вартий уваги? Напишіть — обговоримо за кавою.</p>
+          <a class="btn btn--lime btn--small" href="#feedback">
+            Написати шефу
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-mark" aria-hidden="true">м'ята <span>&amp;</span> еспресо</div>
+
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> М'ята &amp; Еспресо. Зроблено з любов'ю та щіпкою перцю.</p>
+        <p><a href="index.html">На головну</a> · <a href="recipes.html">До рецептів</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="to-top" type="button" aria-label="Повернутися вгору">
+    <svg class="ico" aria-hidden="true"><use href="#i-up"></use></svg>
+  </button>
+
+  <div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог рецептів — М'ята &amp; Еспресо</title>
+  <meta name="description" content="Усі 35 рецептів М'ята & Еспресо: перші страви, основні, салати, сніданки, десерти, випічка та напої. Пошук за назвою або інгредієнтом.">
+  <meta name="theme-color" content="#f6efdf">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem("mx-theme") === "dark") {
+          document.documentElement.dataset.theme = "dark";
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body class="page page-recipes">
+
+  <a class="skip-link" href="#main">Перейти до контенту</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress"></span></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 4v16M6 14l6 6 6-6"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2c1.5 6 4.5 9 10 10-5.5 1-8.5 4-10 10-1.5-6-4.5-9-10-10 5.5-1 8.5-4 10-10Z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="M8 15v-3M12 15V8M16 15v-5"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22c4 0 7-2.8 7-6.4 0-2.6-1.4-4.8-3.4-6.4C14.2 7.7 13.2 5.7 13 3c-1.8 2-2.7 3.9-2.9 5.8C8.7 9.8 8 11.4 8 13c0 1.4.5 2.7 1.4 3.7-.1-1.3.2-2.4.9-3.4.6-.8 1.3-1.5 2.1-2.2.2 1.5.8 2.8 1.8 3.8.6.6 1 1.3 1 2.1 0 .7-.2 1.3-.6 1.9.8-.4 1.4-.9 1.8-1.5"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C10 4 4 8 4 15c0 3 2 5 5 5 7 0 11-6 11-16Z"/><path d="M4 21c2-6 6-10 12-13"/></symbol>
+    <symbol id="i-dice" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="15.5" cy="8.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="8.5" cy="15.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.2" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-wrap">
+        <a class="brand" href="index.html" aria-label="М'ята &amp; Еспресо — на головну">
+          <span class="brand-mark" aria-hidden="true">
+            <svg class="ico ico--fill"><use href="#i-spark"></use></svg>
+          </span>
+          <span class="brand-text">м'ята <i>&amp;</i> еспресо</span>
+        </a>
+
+        <nav class="nav" id="site-nav" aria-label="Головна навігація">
+          <a class="nav-link" href="index.html">Головна</a>
+          <a class="nav-link is-active" href="recipes.html" aria-current="page">Рецепти <span class="nav-count">35</span></a>
+          <a class="nav-link" href="tips.html">Довідник</a>
+          <a class="nav-link" href="index.html#philosophy">Про кухню</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="Увімкнути нічну тему" aria-pressed="false">
+            <svg class="ico icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+            <svg class="ico icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+          </button>
+          <button class="btn btn--lime btn--small" type="button" data-random-recipe>
+            Випадкова страва
+            <svg class="ico" aria-hidden="true"><use href="#i-dice"></use></svg>
+          </button>
+          <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="site-nav">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero" aria-labelledby="catalog-title">
+      <div class="container page-hero-grid">
+        <div>
+          <nav class="breadcrumbs" aria-label="Навігаційний ланцюжок">
+            <a href="index.html">Головна</a>
+            <span aria-hidden="true">/</span>
+            <span>Рецепти</span>
+          </nav>
+
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> 35 рецептів · 7 категорій · 0 нудьги</p>
+          <h1 class="page-title" id="catalog-title">Каталог <em>смаків</em></h1>
+          <p class="page-lead">
+            Шукайте за назвою, настроєм або тим, що вже лежить у холодильнику.
+            Кожен рецепт — перевірений, зрозумілий і без зайвих кроків.
+          </p>
+        </div>
+
+        <div class="page-art" aria-hidden="true">
+          <div class="page-art-disc">
+            <strong>35</strong>
+            <span>рецептів</span>
+          </div>
+          <span class="page-art-sticker">усі перевірені!</span>
+          <svg class="page-art-star ico ico--fill"><use href="#i-spark"></use></svg>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Пошук і фільтри рецептів">
+      <div class="container">
+        <div class="catalog-toolbar">
+          <div class="search-field">
+            <svg class="ico" aria-hidden="true"><use href="#i-search"></use></svg>
+            <label class="sr-only" for="catalog-search">Пошук рецепта за назвою або інгредієнтом</label>
+            <input id="catalog-search" type="search" placeholder="Знайти страву або інгредієнт…" autocomplete="off">
+            <button class="search-clear" id="catalog-clear" type="button" aria-label="Очистити пошук" hidden>
+              <svg class="ico" aria-hidden="true"><use href="#i-close"></use></svg>
+            </button>
+          </div>
+
+          <div class="sort-field">
+            <label for="catalog-sort">Сортувати</label>
+            <select id="catalog-sort">
+              <option value="popular">Як у журналі</option>
+              <option value="time-asc">Спочатку швидкі</option>
+              <option value="time-desc">Спочатку довгі</option>
+              <option value="title">За назвою</option>
+            </select>
+          </div>
+
+          <div class="filter-row" id="filter-row" role="group" aria-label="Фільтр за категорією">
+            <button class="filter-btn is-active" type="button" data-category="all" aria-pressed="true">Усі <span>35</span></button>
+            <button class="filter-btn" type="button" data-category="soup" aria-pressed="false">Перші <span>5</span></button>
+            <button class="filter-btn" type="button" data-category="main" aria-pressed="false">Основні <span>8</span></button>
+            <button class="filter-btn" type="button" data-category="salad" aria-pressed="false">Салати <span>4</span></button>
+            <button class="filter-btn" type="button" data-category="breakfast" aria-pressed="false">Сніданки <span>6</span></button>
+            <button class="filter-btn" type="button" data-category="dessert" aria-pressed="false">Десерти <span>6</span></button>
+            <button class="filter-btn" type="button" data-category="bakery" aria-pressed="false">Випічка <span>3</span></button>
+            <button class="filter-btn" type="button" data-category="drink" aria-pressed="false">Напої <span>3</span></button>
+          </div>
+
+          <div class="catalog-meta">
+            <p><strong id="catalog-count" aria-live="polite">35 рецептів</strong></p>
+            <p class="catalog-meta-hint" id="catalog-hint">Показано 12 із 35 · натисніть на картку, щоб відкрити рецепт</p>
+          </div>
+        </div>
+
+        <div class="catalog-grid-wrap">
+          <div class="recipe-grid recipe-grid--catalog" id="catalog-grid"></div>
+          <div class="catalog-more-wrap">
+            <button class="btn btn--ghost" id="catalog-more" type="button">
+              <span id="catalog-more-label">Показати ще</span>
+              <span id="catalog-more-count">+12</span>
+            </button>
+          </div>
+          <noscript>
+            <p style="padding: 2rem 0;">Увімкніть JavaScript, щоб побачити каталог. Або перегляньте рецепти у <a href="index.html">розділі на головній</a>.</p>
+          </noscript>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-cta-section">
+      <div class="container">
+        <div class="page-cta">
+          <div>
+            <p class="kicker">Не знайшли?</p>
+            <h2>Доля знає краще.</h2>
+            <p>Киньте кубик — і ми відкриємо випадковий рецепт. Іноді найкращі вечері починаються саме так.</p>
+          </div>
+          <button class="btn btn--dark" type="button" data-random-recipe>
+            Кинути кубик
+            <svg class="ico" aria-hidden="true"><use href="#i-dice"></use></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="М'ята &amp; Еспресо — на головну">
+            <span class="brand-mark" aria-hidden="true">
+              <svg class="ico ico--fill"><use href="#i-spark"></use></svg>
+            </span>
+            <span class="brand-text">м'ята <i>&amp;</i> еспресо</span>
+          </a>
+          <p>Кулінарний щоденник про просту їжу з характером. Готуй, смакуй, живи яскраво.</p>
+          <span class="footer-tag"><span aria-hidden="true"></span> 35 рецептів уже на кухні</span>
+        </div>
+
+        <div class="footer-col">
+          <h3>Меню</h3>
+          <a href="index.html">Головна</a>
+          <a href="recipes.html">Усі рецепти</a>
+          <a href="tips.html">Довідник</a>
+          <a href="tips.html#feedback">Зв'язатися</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Настрої</h3>
+          <a href="recipes.html?category=breakfast">Сніданки</a>
+          <a href="recipes.html?category=main">Основні</a>
+          <a href="recipes.html?category=dessert">Десерти</a>
+          <a href="recipes.html?category=drink">Напої</a>
+        </div>
+
+        <div class="footer-col footer-cta">
+          <h3>Є ідея?</h3>
+          <p>Маєте рецепт, який вартий уваги? Напишіть — обговоримо за кавою.</p>
+          <a class="btn btn--lime btn--small" href="tips.html#feedback">
+            Написати шефу
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-mark" aria-hidden="true">м'ята <span>&amp;</span> еспресо</div>
+
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> М'ята &amp; Еспресо. Зроблено з любов'ю та щіпкою перцю.</p>
+        <p><a href="index.html">На головну</a> · <a href="tips.html">До довідника</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="to-top" type="button" aria-label="Повернутися вгору">
+    <svg class="ico" aria-hidden="true"><use href="#i-up"></use></svg>
+  </button>
+
+  <div class="modal" id="recipe-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-recipe-title">
+      <button class="modal-close" id="modal-close" type="button" data-close-modal aria-label="Закрити рецепт">
+        <svg class="ico" aria-hidden="true"><use href="#i-close"></use></svg>
+      </button>
+      <div class="modal-scroll">
+        <div id="modal-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+
+  <script src="js/db.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
